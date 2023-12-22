@@ -1,15 +1,17 @@
+import { createNavTabs, clearAllExceptNavTabs } from "../nav";
+
 export function loadContact() {
   const contentDiv = document.querySelector("#content");
-  for (let child of contentDiv.childNodes) {
-    if (!child.matches("nav")) {
-      child.remove();
-    }
-  }
+
+  clearAllExceptNavTabs(contentDiv);
+
+  // Parent div
   const contactDiv = document.createElement("div");
 
+  // Header
   const contactTitle = document.createElement("h1");
   contactTitle.textContent = "Contact the Greatest Restaurant";
 
-  contactDiv.append();
+  contactDiv.appendChild(contactTitle);
   contentDiv.appendChild(contactDiv);
 }

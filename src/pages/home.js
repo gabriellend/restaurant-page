@@ -1,12 +1,14 @@
-const { unsplashImageUrl } = require("./assets/img-urls");
-import { createNav } from "./nav";
+const { unsplashImageUrl } = require("../assets/img-urls");
+import { createNavTabs, clearAllExceptNavTabs } from "../components/nav";
 
 export function loadHome() {
   const contentDiv = document.querySelector("#content");
   if (!contentDiv.querySelector("nav")) {
     // Create nav tabs if they don't already exist
-    const nav = createNav();
+    const nav = createNavTabs();
     contentDiv.appendChild(nav);
+  } else {
+    clearAllExceptNavTabs(contentDiv);
   }
 
   // Create image

@@ -1,16 +1,17 @@
+import { createNavTabs, clearAllExceptNavTabs } from "../nav";
+
 export function loadMenu() {
   const contentDiv = document.querySelector("#content");
-  for (let child of contentDiv.childNodes) {
-    if (!child.matches("nav")) {
-      child.remove();
-    }
-  }
+
+  clearAllExceptNavTabs(contentDiv);
+
+  // Parent div
   const menuDiv = document.createElement("div");
 
+  // Header
   const menuTitle = document.createElement("h1");
   menuTitle.textContent = "The Greatest Restaurant Menu";
 
-  menuDiv.append();
-
+  menuDiv.appendChild(menuTitle);
   contentDiv.appendChild(menuDiv);
 }

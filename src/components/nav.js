@@ -1,8 +1,8 @@
-import { loadHome } from "./home";
-import { loadMenu } from "./menu";
-import { loadContact } from "./contact";
+import { loadHome } from "../pages/home";
+import { loadMenu } from "../pages/menu";
+import { loadContact } from "../pages/contact";
 
-export function createNav() {
+export function createNavTabs() {
   const tabs = ["Home", "Menu", "Contact"];
 
   const nav = document.createElement("nav");
@@ -12,9 +12,8 @@ export function createNav() {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.textContent = tabName;
+    a.addEventListener("click", () => navigate(tabName));
     li.appendChild(a);
-
-    li.addEventListener("click", () => navigate(tabName));
     ul.append(li);
   }
 
@@ -30,5 +29,20 @@ function navigate(destination) {
       option();
       break;
     }
+  }
+}
+
+export function clearAllExceptNavTabs(parent) {
+  // Collect all elements except navs
+  const elementsToRemove = [];
+  for (let child of parent.children) {
+    if (child.tagName !== "NAV") {
+      elementsToRemove.push(child);
+    }
+  }
+
+  // Remove them
+  for (let element of elementsToRemove) {
+    parent.removeChild(element);
   }
 }
