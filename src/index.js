@@ -1,3 +1,3 @@
-const { loadPage } = require("./init");
+import { loadHome } from "./home";
 
-loadPage();
+loadHome();
