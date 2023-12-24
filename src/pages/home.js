@@ -17,7 +17,7 @@ export function loadHome() {
 
   // Create header
   const h1 = document.createElement("h1");
-  h1.textContent = "The Restaurant";
+  h1.textContent = "The Greatest Restaurant";
 
   // Create description
   const p = document.createElement("p");
