@@ -1,4 +1,4 @@
-import { createNavTabs, clearAllExceptNavTabs } from "../nav";
+import { clearAllExceptNavTabs } from "../components/nav";
 
 export function loadContact() {
   const contentDiv = document.querySelector("#content");
